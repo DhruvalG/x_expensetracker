@@ -8,8 +8,8 @@ import { dummyData } from './dummyTransactions';
 
 function App() {
   let [money, setMoney] = useState({
-    balance: 3800,
-    expenses: 1200
+    balance: 5000,
+    expenses: 0
   })
   let [transactionData, setTransactionData] = useState(dummyData);
   let initialRender = useRef(true);
@@ -23,7 +23,7 @@ function App() {
   }, [])
 
   useEffect(()=> {
-    if(!initialRender.current){
+    if(initialRender.current){
       localStorage.setItem("allData", JSON.stringify({money, transactionData}));
     } 
   }, [money, transactionData])
